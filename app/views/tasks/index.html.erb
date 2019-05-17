@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>bonjour tout le monde</h1>
+  <% @tasks.each do |task| %>
+    <div class="task">
+      <% if task.completed %>
+        ☑︎
+      <% else %>
+        ☐
+      <% end %>
+      <p><%= link_to task.title, task_path(task) %>
+        <%= link_to '🚮', task_path(task), method: :delete, data: {confirm: "Delete #{task.title}?"}  %>
+      </p>
+    </div>
+  <% end %>
+  <p><div class="link"><%= link_to "+ Add a new task", new_task_path %></div></p>
+</div>
